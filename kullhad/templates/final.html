@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fianl</title>
+</head>
+<body>
+<p>Type new Password </p>
+
+<form action="{% url 'finalreset' %}" method="post" id="systemForm">
+    {% csrf_token %}
+
+<input type="password" value="" id="pass1" name="pass1" placeholder="Enter Password" required>
+
+            <input type="password"  id="pass2" name="pass2" placeholder="Confirm Password" required>
+     <input type="hidden" id="custId" name="custId" value="{{ user.u_no }}">
+    <button type="submit" class="submit_btn">Submit</button>
+</form>
+</body>
+</html>

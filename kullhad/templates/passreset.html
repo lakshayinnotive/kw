@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>passreset</title>
+</head>
+<body>
+<form action="{% url 'passwordchange' %}" method="post">
+    {% csrf_token %}
+
+    <input type="email" name="email" placeholder="Enter Your email" required><br>
+  <br>
+    <a href=""><button type="submit" class="submit_btn">Submit</button></a>
+
+
+</form>
+</body>
+</html>
