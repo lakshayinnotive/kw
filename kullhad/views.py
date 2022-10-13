@@ -13,7 +13,9 @@ import uuid
 from .utils import *
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_text
+from django.utils.encoding import force_bytes, force_str
+
+
 
 from .tokens import generate_token
 from django.core.mail import send_mail
@@ -168,7 +170,7 @@ def delt(uid):
 
 def activate(request, uidb64, token):
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         my_user = User.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         my_user = None
@@ -263,7 +265,7 @@ def finalreset(request):
     except:
         email1 = Forget.objects.filter(u_no=uid)
 
-    email = force_text(email1)
+    email = force_str(email1)
     print(email)
 
     if pass1 == pass2:
@@ -282,3 +284,6 @@ def finalreset(request):
 
     else:
         return redirect('/')
+
+def blog(request):
+    return render(request, "blog.html")

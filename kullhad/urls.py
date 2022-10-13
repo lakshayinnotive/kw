@@ -18,6 +18,7 @@ urlpatterns = [
     path('reset/<uidb64>', views.reset, name='reset'),
     path('finalreset', views.finalreset, name='finalreset'),
     path('news/', views.news, name='news'),
+    path('blog/', views.blog, name='blog'),
 
 
     # forgot password
